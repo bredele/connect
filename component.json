@@ -1,0 +1,16 @@
+{
+  "name": "peer-connect",
+  "repo": "bredele/peer-connct",
+  "description": "Create local peer to peer connection",
+  "version": "0.0.0",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
