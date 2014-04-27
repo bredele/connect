@@ -1,37 +1,45 @@
 
 /**
- * connect constructor.
+ * Connect two local peer connection.
+ *
+ * Connect create an offer and an answer and
+ * set session descriptions for each peer.
+ * 
+ * Examples:
+ *
+ *   var master = peer();
+ *   var slave = peer();
+ *   master.use(connect(slave));
+ *   
+ * @param {Peer} slave
  * @api public
  */
 
 
-module.exports = function connect(slave, node) {
-	return function(ctx) {
+module.exports = function connect(slave) {
 
-		ctx.on('candidate', function(candidate) {
-			slave.ice(candidate);
-		});
+  return function(ctx) {
 
-		slave.on('candidate', function(candidate) {
-			ctx.ice(candidate);
-		});
+    ctx.on('candidate', function(candidate) {
+      slave.ice(candidate);
+    });
 
-		slave.on('answer', function(offer) {
-			ctx.remote(offer);
-		});
+    slave.on('candidate', function(candidate) {
+      ctx.ice(candidate);
+    });
 
-		ctx.on('offer', function(offer) {
-			slave.remote(offer);
-			slave.answer();
-		});
+    slave.on('answer', function(offer) {
+      ctx.remote(offer);
+    });
 
-		slave.on('remote stream', function(stream) {
-			//NOTE: refactor attach
-			document.querySelector('#slave').src = window.URL.createObjectURL(stream);
-		});
+    ctx.on('offer', function(offer) {
+      slave.remote(offer);
+      slave.answer();
+    });
 
-		ctx.on('local stream', function() {
-			ctx.offer();
-		});
-	};
+    ctx.create();
+    slave.create();
+    ctx.offer();
+  };
+
 };

@@ -1,6 +1,6 @@
 {
-  "name": "peer-connect",
-  "repo": "bredele/peer-connct",
+  "name": "connect",
+  "repo": "bredele/connect",
   "description": "Create local peer to peer connection",
   "version": "0.0.1",
   "keywords": [],

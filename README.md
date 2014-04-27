@@ -7,7 +7,7 @@ connect
 
 with [component](http://github.com/component/component):
 
-	$ component install bredele/peer-connect
+	$ component install bredele/connect
 
 
 ## Usage
@@ -15,10 +15,10 @@ with [component](http://github.com/component/component):
   connect is a one liner to connect two local peer connection and display the media stream:
 
 ```js
-var master = peer(null, '#master');
+var master = peer();
 var slave = peer();
 
-master.use(connect(slave, '#slave'))
+master.use(connect(slave))
 ```
 
 ## License
