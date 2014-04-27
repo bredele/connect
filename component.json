@@ -2,7 +2,7 @@
   "name": "connect",
   "repo": "bredele/connect",
   "description": "Create local peer to peer connection",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [],
   "dependencies": {},
   "development": {},
