@@ -12,11 +12,12 @@
  *   master.use(connect(slave));
  *   
  * @param {Peer} slave
+ * @param {Boolean} bool (false to differ offer)
  * @api public
  */
 
 
-module.exports = function connect(slave) {
+module.exports = function connect(slave, bool) {
 
   return function(ctx) {
 
@@ -39,7 +40,7 @@ module.exports = function connect(slave) {
 
     ctx.create();
     slave.create();
-    ctx.offer();
+    if(bool !== false) ctx.offer();
   };
 
 };

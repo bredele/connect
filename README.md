@@ -21,6 +21,19 @@ var slave = peer();
 master.use(connect(slave))
 ```
 
+  you can differ the master peer connection offer by doing:
+
+```js
+var master = peer();
+var slave = peer();
+
+master.use(connect(slave, false))
+master.offer();
+```
+
+  > medias has to be added before an offer.
+
+
 ## License
 
 The MIT License (MIT)
